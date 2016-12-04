@@ -1,0 +1,76 @@
+﻿@model IEnumerable<Curs8_MVC.Models.ProjectEvaluation>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Evaluation</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+@*<table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.city)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.country)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.rating)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                <!--@Html.DisplayFor(modelItem => item.name)-->
+                @item.name
+            </td>
+            <td>
+                <!-- @Html.DisplayFor(modelItem => item.city)-->
+               <!--@Html.Raw(item.city)-->
+                @item.city
+
+            </td>
+            <td>
+               <!-- @Html.DisplayFor(modelItem => item.country)-->
+                @item.country
+            </td>
+            <td>
+                <!--@Html.DisplayFor(modelItem => item.rating)-->
+                @(item.rating/10)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+    }
+</table>*@
+
+<div>
+    <div>
+        @Html.DisplayNameFor(model => model.name)
+        @Html.DisplayNameFor(model => model.city)
+        @Html.DisplayNameFor(model => model.country)
+        @Html.DisplayNameFor(model => model.rating)
+    </div>
+    <div>
+        @foreach(var item in Model)
+        {
+            <div class="evaluation">
+                <h4>@item.name</h4>
+                <span>@item.rating</span>
+                <p>@item.city, @item.country</p>
+            </div>
+        }
+    </div>
+</div>
