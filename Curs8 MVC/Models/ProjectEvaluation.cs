@@ -11,5 +11,7 @@ namespace Curs8_MVC.Models
         public string city { get; set; }
         public string country { get; set; }
         public double rating { get; set; }
+
+        public int id { get; set; }
     }
 }

@@ -59,18 +59,24 @@
 <div>
     <div>
         @Html.DisplayNameFor(model => model.name)
+        @Html.DisplayNameFor(model => model.rating)
         @Html.DisplayNameFor(model => model.city)
         @Html.DisplayNameFor(model => model.country)
-        @Html.DisplayNameFor(model => model.rating)
+        @Html.DisplayNameFor(model => model.id)
+
     </div>
     <div>
         @foreach(var item in Model)
         {
-            <div class="evaluation">
-                <h4>@item.name</h4>
-                <span>@item.rating</span>
-                <p>@item.city, @item.country</p>
-            </div>
+            @Html.Partial("~/Views/Evaluation/_Evaluation.cshtml", item)
         }
     </div>
 </div>
+
+@section test
+{
+    <div class="total">
+        <hr />
+        Total number of evaluation = @Model.Count()
+    </div>
+    }

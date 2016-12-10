@@ -12,9 +12,9 @@ namespace Curs8_MVC.Controllers
 
         public static List<ProjectEvaluation> ListOfProject = new List<ProjectEvaluation>
         {
-            new ProjectEvaluation() {name="Mare", city = "Cluj", country="Romania", rating= 9.5 },
-            new ProjectEvaluation() {name="Mic", city = "<script> alert('xss'); </script>", country="Romania", rating= 3.34 },
-            new ProjectEvaluation() {name="Mediu", city = "Sibiu", country="Romania", rating= 7.8 }
+            new ProjectEvaluation() {name="Ardeal", city = "Cluj", country="Romania", rating= 9.5, id=1},
+            new ProjectEvaluation() {name="Banat", city = "<script> alert('xss'); </script>", country="Romania", rating= 3.34, id=11 },
+            new ProjectEvaluation() {name="Transilvania", city = "Sibiu", country="Romania", rating= 7.8,id=111 }
         };
 
         // GET: Evaluation
@@ -61,16 +61,24 @@ namespace Curs8_MVC.Controllers
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
-            try
-            {
-                // TODO: Add update logic here
+            var evaluation = ListOfProject.Single(e => e.id == id);
 
+            if (TryUpdateModel(evaluation))
+            {
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+            return View(evaluation);
+
+            //try
+            //{
+            //    // TODO: Add update logic here
+
+            //    return RedirectToAction("Index");
+            //}
+            //catch
+            //{
+            //    return View();
+            //}
         }
 
         // GET: Evaluation/Delete/5

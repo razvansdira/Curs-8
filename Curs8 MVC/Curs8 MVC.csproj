@@ -237,6 +237,10 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Evaluation\Index.cshtml" />
+    <Content Include="Views\Evaluation\_LayoutNou.cshtml" />
+    <Content Include="Views\Evaluation\_ViewStart.cshtml" />
+    <Content Include="Views\Evaluation\Edit.cshtml" />
+    <Content Include="Views\Evaluation\_Evaluation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
