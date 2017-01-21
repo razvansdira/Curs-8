@@ -18,9 +18,15 @@ namespace Curs8_MVC.Controllers
         };
 
         // GET: Evaluation
-        public ActionResult Index()
+        public ActionResult Index(string searchTerm = null)
         {
-            return View(ListOfProject);
+            if (searchTerm != null)
+            {
+                var lowerSearchTerm = searchTerm.ToLower();
+                var model = ListOfProject.Where(p => p.name.ToLower().StartsWith(lowerSearchTerm)).Take(10);
+            }
+            return View();
+
         }
 
         // GET: Evaluation/Details/5

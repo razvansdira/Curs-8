@@ -10,6 +10,10 @@ namespace Curs8_MVC.Controllers
     {
         public ActionResult Index()
         {
+            if (Request.IsAjaxRequest())
+            {
+                return PartialView("_Projects");
+            }
             return View();
         }
 
